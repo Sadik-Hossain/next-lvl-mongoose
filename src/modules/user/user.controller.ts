@@ -4,10 +4,12 @@ import {
   getUserByIDfromDB,
   getUserFromDB,
 } from "./user.services";
+import { IUser } from "./user.interface";
 
 export const CreateUser = async (req: Request, res: Response) => {
   try {
-    const user = await createUserToDB();
+    const payload: IUser = req.body;
+    const user = await createUserToDB(payload);
     res.status(200).json({ success: true, data: user });
   } catch (error) {
     console.log(error);

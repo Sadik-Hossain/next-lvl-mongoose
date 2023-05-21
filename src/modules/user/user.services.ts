@@ -1,4 +1,4 @@
-import { IUser } from "./user.interface";
+import { IUser, UserModel } from "./user.interface";
 import User from "./user.model";
 
 export const getUserFromDB = async (): Promise<IUser[]> => {
@@ -7,23 +7,11 @@ export const getUserFromDB = async (): Promise<IUser[]> => {
   return result;
 };
 
-export const createUserToDB = async (): Promise<IUser> => {
-  const newUser = new User({
-    id: "1",
-    role: "student",
-    password: "12",
-    name: {
-      firstName: "a",
-      middleName: "b",
-      lastName: "c",
-    },
-    gender: "male",
-    contactNo: "111",
-    emergencyContactNo: "111",
-    presentAddress: "zxXxX",
-    permanentAddress: "zxXxX",
-  });
+export const createUserToDB = async (payload: IUser): Promise<IUser> => {
+  const newUser = new User(payload);
   const result = await newUser.save();
+  //  console.log(newUser.fullName()); // instance method
+
   return result;
 };
 export const getUserByIDfromDB = async (
@@ -36,5 +24,13 @@ export const getUserByIDfromDB = async (
     { id: payload },
     { name: 1, permanentAddress: 1 }
   );
+
   return result;
 };
+
+export const getAdminFromDB = async () => {
+  const result = await User.getAdminUsers();
+  console.log(result);
+  return result;
+};
+getAdminFromDB();

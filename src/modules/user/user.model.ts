@@ -1,7 +1,11 @@
-import { Schema, model } from "mongoose";
-import { IUser } from "./user.interface";
+import { Model, Schema, model } from "mongoose";
+import { IUser, IUserMethod, UserModel } from "./user.interface";
 
-const userSchema = new Schema<IUser>({
+//* for instance method
+// type UserModel = Model<IUser, {}, IUserMethod>;
+
+const userSchema = new Schema<IUser, UserModel, IUserMethod>({
+  // const userSchema = new Schema<IUser, UserModel>({
   id: {
     type: String,
     required: true,
@@ -39,5 +43,21 @@ const userSchema = new Schema<IUser>({
   },
 });
 
-const User = model<IUser>("User", userSchema);
+//* instance method
+//? name in quotation and fn name has to be same
+userSchema.method("fullName", function fullName() {
+  return this.name.firstName + " " + this.name.lastName;
+});
+
+//* static method
+userSchema.static("getAdminUsers", async function getAdminUsers() {
+  const users = await this.find({ role: "admin" });
+
+  return users;
+  // return 42;
+});
+
+const User = model<IUser, UserModel>("User", userSchema);
 export default User;
+
+// to use instance method we have to create instance of class
