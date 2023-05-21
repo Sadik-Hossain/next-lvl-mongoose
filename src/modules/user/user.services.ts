@@ -26,3 +26,15 @@ export const createUserToDB = async (): Promise<IUser> => {
   const result = await newUser.save();
   return result;
 };
+export const getUserByIDfromDB = async (
+  payload: string
+): Promise<IUser | null> => {
+  //   const result = await User.findOne({ id: payload });
+  //* field filtering
+  //   const result = await User.findOne({id:payload},{name:1})
+  const result = await User.findOne(
+    { id: payload },
+    { name: 1, permanentAddress: 1 }
+  );
+  return result;
+};

@@ -69,7 +69,7 @@
     {
       "isReadOnly": false,
       "isPenMode": false,
-      "isGridMode": false,
+      "isGridMode": true,
       "isDarkMode": true,
       "isMobileMode": false,
       "isSnapMode": false,
@@ -111,12 +111,12 @@
       },
       "isFocusMode": false,
       "exportBackground": true,
-      "isDebugMode": true,
+      "isDebugMode": false,
       "isToolLocked": false,
       "screenBounds": {
         "x": 0,
         "y": 0,
-        "w": 1196,
+        "w": 1148,
         "h": 629
       },
       "zoomBrush": null,
@@ -133,15 +133,15 @@
     },
     {
       "lastUsedInstanceId": "instance:nLlJj7Rm7ocj-mgr2Cr7E",
-      "lastActivityTimestamp": 1684678321481,
+      "lastActivityTimestamp": 1684679686915,
       "cursor": {
-        "x": 1071.8582461380424,
-        "y": 505.93097402980635,
+        "x": 804.1169716349348,
+        "y": 414.4071710108868,
         "z": 0
       },
       "viewportPageBounds": {
         "x": -221.76923832340134,
-        "y": -74.63046303050368,
+        "y": -74.63046303050373,
         "w": 1633.768185233249,
         "h": 859.2309268492588
       },
@@ -152,7 +152,7 @@
     },
     {
       "x": 221.76923832340134,
-      "y": 74.63046303050368,
+      "y": 74.63046303050373,
       "z": 0.7320500000000001,
       "id": "camera:x3hRYXRd48IHVYiiaqT63",
       "typeName": "camera"
