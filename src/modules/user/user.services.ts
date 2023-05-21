@@ -1,7 +1,8 @@
 import { IUser } from "./user.interface";
 import User from "./user.model";
 
-export const getUserFromDB = async () => {
+export const getUserFromDB = async (): Promise<IUser[]> => {
+  //* returns array of obj, so the return type will be Promise<IUser[]>
   const result = await User.find();
   return result;
 };
