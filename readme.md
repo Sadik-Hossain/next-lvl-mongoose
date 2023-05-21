@@ -1,1 +1,1 @@
-![alt](../mongoose/modular.png)
+<img src="./modular.png">
